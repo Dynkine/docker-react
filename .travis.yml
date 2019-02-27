@@ -7,3 +7,18 @@ before_install:
 
 script: 
   - docker run dynkine/docker-react npm run test -- --coverage
+
+  deploy: 
+    provider: elasticbeanstalk
+    region: "eu-west-1"
+    app: "docker"
+    env: "Docker-env"
+    bucket_name: "elasticbeanstalk-eu-west-1-988585708477"
+    bucket_path: "docker"
+    on:
+      branch: master
+
+    access_key_id: "$AWS_ACCESS_KEY"
+    secre_access_key: 
+      secure: "$AWS_SECRET_KEY"
+
