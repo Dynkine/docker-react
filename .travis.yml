@@ -8,7 +8,7 @@ before_install:
 script: 
   - docker run dynkine/docker-react npm run test -- --coverage
 
-  deploy: 
+deploy: 
     provider: elasticbeanstalk
     region: "eu-west-1"
     app: "docker"
